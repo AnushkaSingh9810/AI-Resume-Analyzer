@@ -171,7 +171,7 @@ Give 3 practical suggestions.
 INTERVIEW QUESTIONS:
 Give 5 interview questions based on the resume and job description.
 """
-            import time
+import time
 
 with st.spinner("🤖 AI is analyzing your resume..."):
 
