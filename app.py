@@ -175,7 +175,7 @@ Give 5 interview questions based on the resume and job description.
         with st.spinner("🤖 AI is analyzing your resume..."):
 
             response = client.models.generate_content(
-                model="gemini-3.6-flash",
+               model="gemini-2.5-flash",
                 contents=prompt
             )
 
