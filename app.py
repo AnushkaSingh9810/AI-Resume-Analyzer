@@ -171,14 +171,23 @@ Give 3 practical suggestions.
 INTERVIEW QUESTIONS:
 Give 5 interview questions based on the resume and job description.
 """
+            import time
 
-        with st.spinner("🤖 AI is analyzing your resume..."):
+with st.spinner("🤖 AI is analyzing your resume..."):
 
-            response = client.models.generate_content(
-    model="gemini-3.6-flash",
-    contents=prompt
-)
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.6-flash",
+            contents=prompt
+        )
 
+    except Exception:
+        time.sleep(3)
+
+        response = client.models.generate_content(
+            model="gemini-3.7-flash",
+            contents=prompt
+        )
         result = response.text
 
         # =========================
