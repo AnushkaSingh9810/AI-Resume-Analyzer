@@ -83,14 +83,6 @@ st.markdown("""
 
 col1, col2 = st.columns(2)
 
-with col1:
-    st.markdown("### 🔑 Gemini API Key")
-
-    api_key = st.text_input(
-        "Enter your API key",
-        type="password",
-        label_visibility="collapsed"
-    )
 
 with col2:
     st.markdown("### 📄 Upload Resume")
@@ -123,10 +115,7 @@ analyze = st.button(
 
 if analyze:
 
-    if not api_key:
-        st.warning("🔑 Please enter your Gemini API key.")
-
-    elif resume_file is None:
+    if resume_file is None:
         st.warning("📄 Please upload your resume PDF.")
 
     elif not job_description.strip():
@@ -148,7 +137,7 @@ if analyze:
         # =========================
         # GEMINI
         # =========================
-
+        api_key = st.secrets["GEMINI_API_KEY"]
         client = genai.Client(api_key=api_key)
 
         prompt = f"""
