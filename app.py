@@ -178,7 +178,6 @@ Give 5 interview questions based on the resume and job description.
     model="gemini-3.6-flash",
     contents=prompt
 )
-            )
 
         result = response.text
 
